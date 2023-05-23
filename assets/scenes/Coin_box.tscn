@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/art/tiles.png" type="Texture" id=1]
+[ext_resource path="res://assets/scripts/Coin_box.gd" type="Script" id=2]
+[ext_resource path="res://assets/scenes/Coin.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 9, 0.1 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 9, 9 )
+
+[node name="Coin_box" type="Area2D"]
+gravity_vec = Vector2( 0, 0 )
+gravity = 0.0
+monitorable = false
+collision_layer = 8
+collision_mask = 5
+script = ExtResource( 2 )
+
+[node name="Coin_box" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+hframes = 20
+vframes = 10
+frame = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, 9 )
+z_as_relative = false
+shape = SubResource( 1 )
+one_way_collision = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 2 )
+
+[node name="Coin" parent="." instance=ExtResource( 3 )]
+position = Vector2( -17, -24 )
+monitorable = false
+
+[connection signal="body_entered" from="." to="." method="_on_Coin_box_body_entered"]
+
+[editable path="Coin"]

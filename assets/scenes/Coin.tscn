@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://assets/art/tiles.png" type="Texture" id=1]
+[ext_resource path="res://assets/art/scenescoin.tres" type="Animation" id=2]
+[ext_resource path="res://assets/scripts/Coin.gd" type="Script" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 5.85, 5.65 )
+
+[node name="Coin" type="Area2D"]
+input_pickable = false
+collision_layer = 8
+collision_mask = 5
+script = ExtResource( 3 )
+
+[node name="tiles" type="Sprite" parent="."]
+position = Vector2( 16, 8 )
+texture = ExtResource( 1 )
+hframes = 20
+vframes = 9
+frame = 152
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="tiles"]
+playback_speed = 0.9
+anims/coin = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 16.15, 8.65 )
+scale = Vector2( 1.01, 1.05 )
+shape = SubResource( 1 )
+
+[connection signal="body_entered" from="." to="." method="_on_Coin_body_entered" flags=6]

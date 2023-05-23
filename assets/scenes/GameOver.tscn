@@ -1,0 +1,47 @@
+[gd_scene format=2]
+
+[node name="Panel" type="Panel"]
+modulate = Color( 9.04, 8.58, 13.06, 1 )
+self_modulate = Color( 0.705882, 0.705882, 0.705882, 1 )
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false,
+"_editor_description_": ""
+}
+
+[node name="Label" type="Label" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.324
+anchor_top = 0.2
+anchor_right = 0.324
+anchor_bottom = 0.215
+margin_left = -0.0759888
+margin_right = 72.924
+margin_bottom = 5.0
+rect_scale = Vector2( 5, 5 )
+text = "Game Over"
+
+[node name="score" type="Label" parent="."]
+self_modulate = Color( 0, 0, 0, 1 )
+margin_left = 331.7
+margin_top = 300.0
+margin_right = 371.746
+margin_bottom = 314.121
+rect_scale = Vector2( 5, 5 )
+text = "score: "
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+modulate = Color( 0, 0, 0, 1 )
+margin_left = 450.0
+margin_top = 413.0
+margin_right = 495.0
+margin_bottom = 433.0
+rect_scale = Vector2( 2, 2 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+action_mode = 0
+text = "Retry"
+flat = true
